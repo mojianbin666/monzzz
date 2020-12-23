@@ -1,0 +1,140 @@
+---
+title: "Rnotes1221"
+author: "莫健彬"
+date: '2020-12-23'
+slug: rnotes1221
+categories: []
+tags: R Markdown
+---
+
+
+
+<div id="日学习笔记" class="section level1">
+<h1>12.21日学习笔记</h1>
+<div id="基础计算" class="section level2">
+<h2>基础计算</h2>
+<ul>
+<li><ul>
+<li><ul>
+<li>/ ^</li>
+</ul></li>
+</ul></li>
+</ul>
+<p>c()</p>
+<p>[]</p>
+<p>round()</p>
+<p>sqrt()</p>
+<p>exp()</p>
+<p>log()</p>
+<p>log10()</p>
+<p>=</p>
+<p>&lt;- 快捷键(alt + _)</p>
+<pre class="r"><code>#计算圆形周长面积
+r &lt;-  c(10,20,30,40,60)
+l &lt;-  2*pi*r
+print(l)</code></pre>
+<pre><code>## [1]  62.83185 125.66371 188.49556 251.32741 376.99112</code></pre>
+<pre class="r"><code>a &lt;- pi*r^2
+print(a)</code></pre>
+<pre><code>## [1]   314.1593  1256.6371  2827.4334  5026.5482 11309.7336</code></pre>
+</div>
+<div id="从文件读取数据" class="section level2">
+<h2>从文件读取数据</h2>
+<pre class="r"><code>aq &lt;- read.csv(&#39;C:\\Users\\78472\\Documents\\zuotu\\aq.csv&#39;)</code></pre>
+</div>
+<div id="输出整列" class="section level2">
+<h2>输出整列</h2>
+<pre class="r"><code>ozone &lt;- aq$Ozone #$号输出列</code></pre>
+</div>
+<div id="输出行列信息" class="section level2">
+<h2>输出行列信息</h2>
+<pre class="r"><code>dim(aq) #行列数</code></pre>
+<pre><code>## [1] 153   7</code></pre>
+<pre class="r"><code>rownames(aq) #行名称</code></pre>
+<pre><code>##   [1] &quot;1&quot;   &quot;2&quot;   &quot;3&quot;   &quot;4&quot;   &quot;5&quot;   &quot;6&quot;   &quot;7&quot;   &quot;8&quot;   &quot;9&quot;   &quot;10&quot;  &quot;11&quot;  &quot;12&quot; 
+##  [13] &quot;13&quot;  &quot;14&quot;  &quot;15&quot;  &quot;16&quot;  &quot;17&quot;  &quot;18&quot;  &quot;19&quot;  &quot;20&quot;  &quot;21&quot;  &quot;22&quot;  &quot;23&quot;  &quot;24&quot; 
+##  [25] &quot;25&quot;  &quot;26&quot;  &quot;27&quot;  &quot;28&quot;  &quot;29&quot;  &quot;30&quot;  &quot;31&quot;  &quot;32&quot;  &quot;33&quot;  &quot;34&quot;  &quot;35&quot;  &quot;36&quot; 
+##  [37] &quot;37&quot;  &quot;38&quot;  &quot;39&quot;  &quot;40&quot;  &quot;41&quot;  &quot;42&quot;  &quot;43&quot;  &quot;44&quot;  &quot;45&quot;  &quot;46&quot;  &quot;47&quot;  &quot;48&quot; 
+##  [49] &quot;49&quot;  &quot;50&quot;  &quot;51&quot;  &quot;52&quot;  &quot;53&quot;  &quot;54&quot;  &quot;55&quot;  &quot;56&quot;  &quot;57&quot;  &quot;58&quot;  &quot;59&quot;  &quot;60&quot; 
+##  [61] &quot;61&quot;  &quot;62&quot;  &quot;63&quot;  &quot;64&quot;  &quot;65&quot;  &quot;66&quot;  &quot;67&quot;  &quot;68&quot;  &quot;69&quot;  &quot;70&quot;  &quot;71&quot;  &quot;72&quot; 
+##  [73] &quot;73&quot;  &quot;74&quot;  &quot;75&quot;  &quot;76&quot;  &quot;77&quot;  &quot;78&quot;  &quot;79&quot;  &quot;80&quot;  &quot;81&quot;  &quot;82&quot;  &quot;83&quot;  &quot;84&quot; 
+##  [85] &quot;85&quot;  &quot;86&quot;  &quot;87&quot;  &quot;88&quot;  &quot;89&quot;  &quot;90&quot;  &quot;91&quot;  &quot;92&quot;  &quot;93&quot;  &quot;94&quot;  &quot;95&quot;  &quot;96&quot; 
+##  [97] &quot;97&quot;  &quot;98&quot;  &quot;99&quot;  &quot;100&quot; &quot;101&quot; &quot;102&quot; &quot;103&quot; &quot;104&quot; &quot;105&quot; &quot;106&quot; &quot;107&quot; &quot;108&quot;
+## [109] &quot;109&quot; &quot;110&quot; &quot;111&quot; &quot;112&quot; &quot;113&quot; &quot;114&quot; &quot;115&quot; &quot;116&quot; &quot;117&quot; &quot;118&quot; &quot;119&quot; &quot;120&quot;
+## [121] &quot;121&quot; &quot;122&quot; &quot;123&quot; &quot;124&quot; &quot;125&quot; &quot;126&quot; &quot;127&quot; &quot;128&quot; &quot;129&quot; &quot;130&quot; &quot;131&quot; &quot;132&quot;
+## [133] &quot;133&quot; &quot;134&quot; &quot;135&quot; &quot;136&quot; &quot;137&quot; &quot;138&quot; &quot;139&quot; &quot;140&quot; &quot;141&quot; &quot;142&quot; &quot;143&quot; &quot;144&quot;
+## [145] &quot;145&quot; &quot;146&quot; &quot;147&quot; &quot;148&quot; &quot;149&quot; &quot;150&quot; &quot;151&quot; &quot;152&quot; &quot;153&quot;</code></pre>
+<pre class="r"><code>colnames(aq) #列名称</code></pre>
+<pre><code>## [1] &quot;X&quot;       &quot;Ozone&quot;   &quot;Solar.R&quot; &quot;Wind&quot;    &quot;Temp&quot;    &quot;Month&quot;   &quot;Day&quot;</code></pre>
+</div>
+<div id="基本统计" class="section level2">
+<h2>基本统计</h2>
+<pre class="r"><code>length(aq$X)</code></pre>
+<pre><code>## [1] 153</code></pre>
+<pre class="r"><code>sum(aq$Solar.R)</code></pre>
+<pre><code>## [1] NA</code></pre>
+<pre class="r"><code>sum(aq$Solar.R, na.rm = TRUE)</code></pre>
+<pre><code>## [1] 27146</code></pre>
+<pre class="r"><code>mean(aq$Ozone)</code></pre>
+<pre><code>## [1] NA</code></pre>
+<pre class="r"><code>o3mean &lt;- mean(aq$Ozone)
+o3mean</code></pre>
+<pre><code>## [1] NA</code></pre>
+<pre class="r"><code>aq$ozone2 &lt;- aq$Ozone - o3mean
+# max()
+# min()
+# range() 四舍五入
+# median()
+# sd()
+# var()</code></pre>
+</div>
+<div id="分组计算" class="section level2">
+<h2>分组计算</h2>
+<pre class="r"><code>tapply(aq$Ozone, aq$Month, mean)</code></pre>
+<pre><code>##  5  6  7  8  9 
+## NA NA NA NA NA</code></pre>
+</div>
+<div id="数据概览" class="section level2">
+<h2>数据概览</h2>
+<pre class="r"><code>summary(aq) </code></pre>
+<pre><code>##        X           Ozone           Solar.R           Wind       
+##  Min.   :  1   Min.   :  1.00   Min.   :  7.0   Min.   : 1.700  
+##  1st Qu.: 39   1st Qu.: 18.00   1st Qu.:115.8   1st Qu.: 7.400  
+##  Median : 77   Median : 31.50   Median :205.0   Median : 9.700  
+##  Mean   : 77   Mean   : 42.13   Mean   :185.9   Mean   : 9.958  
+##  3rd Qu.:115   3rd Qu.: 63.25   3rd Qu.:258.8   3rd Qu.:11.500  
+##  Max.   :153   Max.   :168.00   Max.   :334.0   Max.   :20.700  
+##                NA&#39;s   :37       NA&#39;s   :7                       
+##       Temp           Month            Day           ozone2   
+##  Min.   :56.00   Min.   :5.000   Min.   : 1.0   Min.   : NA  
+##  1st Qu.:72.00   1st Qu.:6.000   1st Qu.: 8.0   1st Qu.: NA  
+##  Median :79.00   Median :7.000   Median :16.0   Median : NA  
+##  Mean   :77.88   Mean   :6.993   Mean   :15.8   Mean   :NaN  
+##  3rd Qu.:85.00   3rd Qu.:8.000   3rd Qu.:23.0   3rd Qu.: NA  
+##  Max.   :97.00   Max.   :9.000   Max.   :31.0   Max.   : NA  
+##                                                 NA&#39;s   :153</code></pre>
+<pre class="r"><code>plot(aq[, 2:7]) #散点图
+new_pkg &lt;- c(&#39;ggplot2&#39;, &#39;GGally&#39;)
+# install.packages(new_pkg)
+library(&#39;GGally&#39;)</code></pre>
+<pre><code>## Loading required package: ggplot2</code></pre>
+<pre><code>## Registered S3 method overwritten by &#39;GGally&#39;:
+##   method from   
+##   +.gg   ggplot2</code></pre>
+<p><img src="index_files/figure-html/unnamed-chunk-7-1.png" width="672" /></p>
+<pre class="r"><code>ggpairs(aq[, 2:5])</code></pre>
+<p><img src="index_files/figure-html/unnamed-chunk-7-2.png" width="672" /></p>
+<pre class="r"><code>ggpairs(aq[, 2:6], aes(color = factor(Month), alpha = 0.2))</code></pre>
+<p><img src="index_files/figure-html/unnamed-chunk-7-3.png" width="672" /></p>
+</div>
+<div id="保存" class="section level2">
+<h2>保存</h2>
+<pre class="r"><code># write.csv(aq, &#39;aq2.csv&#39;)</code></pre>
+</div>
+<div id="输出图" class="section level2">
+<h2>输出图</h2>
+<pre class="r"><code># pdf(&#39;aq.pdf&#39;)
+# ggpairs(aq[, 2:6], aes(color = factor(Month), alpha = 0.2))
+# dev.off()</code></pre>
+</div>
+</div>

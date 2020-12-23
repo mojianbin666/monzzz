@@ -1,0 +1,116 @@
+---
+title: "Rnotes1221"
+author: "莫健彬"
+date: '2020-12-23'
+slug: rnotes1221
+categories: []
+tags: R Markdown
+---
+
+# 12.21日学习笔记
+
+## 基础计算
+
++ - * / ^ 
+
+c()
+
+[]
+
+round()
+
+sqrt()
+
+exp()
+
+log()
+
+log10()
+
+=
+
+<-  快捷键(alt + _)
+
+```{r,eval=TRUE}
+#计算圆形周长面积
+r <-  c(10,20,30,40,60)
+l <-  2*pi*r
+print(l)
+a <- pi*r^2
+print(a)
+```
+
+## 从文件读取数据
+
+```{r}
+aq <- read.csv('C:\\Users\\78472\\Documents\\zuotu\\aq.csv')
+```
+
+## 输出整列
+
+```{r,eval=TRUE}
+ozone <- aq$Ozone #$号输出列
+```
+
+## 输出行列信息
+
+```{r,eval=TRUE}
+dim(aq) #行列数
+rownames(aq) #行名称
+colnames(aq) #列名称
+```
+
+## 基本统计
+
+```{r}
+length(aq$X)
+sum(aq$Solar.R)
+sum(aq$Solar.R, na.rm = TRUE)
+mean(aq$Ozone)
+o3mean <- mean(aq$Ozone)
+o3mean
+aq$ozone2 <- aq$Ozone - o3mean
+# max()
+# min()
+# range() 四舍五入
+# median()
+# sd()
+# var()
+```
+
+## 分组计算
+
+```{r}
+tapply(aq$Ozone, aq$Month, mean)
+```
+
+## 数据概览
+
+```{r,warning=FALSE}
+summary(aq) 
+plot(aq[, 2:7]) #散点图
+new_pkg <- c('ggplot2', 'GGally')
+# install.packages(new_pkg)
+library('GGally')
+ggpairs(aq[, 2:5])
+ggpairs(aq[, 2:6], aes(color = factor(Month), alpha = 0.2))
+```
+
+## 保存
+
+```{r}
+# write.csv(aq, 'aq2.csv')
+```
+
+## 输出图
+
+```{r}
+# pdf('aq.pdf')
+# ggpairs(aq[, 2:6], aes(color = factor(Month), alpha = 0.2))
+# dev.off()
+```
+
+
+
+
+
